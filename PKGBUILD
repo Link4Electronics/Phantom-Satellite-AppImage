@@ -19,7 +19,7 @@ options=(!debug !lto)
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/DCFUKSURMOM/Phantom-Satellite/archive/refs/tags/v$pkgver.tar.gz"
         mozconfig.in)
 sha256sums=('201b435222892c150f53b847707baddbf26fd035c3fe32f96f1c91fe13f6b397'
-            'efbfaa642db13d257ffa820196111759bb092715d4729ad30ad843d5edb5085c')
+            'f2dfcd3c0ceda2b3556a1fc18e131ed7a9e0b5f8c6908936c898a0875d0da1a5')
 
 case "${CARCH}" in
   powerpc64le)
