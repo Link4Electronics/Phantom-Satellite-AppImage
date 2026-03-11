@@ -1,0 +1,82 @@
+# POWER Maintainer: Alexander Baldeck <alex.bldck@gmail.com>
+# Maintainer:  Daniel Cook (DCFUKSURMOM) <danielcook30a@gmail.com>
+
+apb_output_timeout=7200
+
+pkgname=phantomsatellite-gtk3
+pkgver=34.1.0
+pkgrel=1
+pkgdesc="Rebranded but otherwise stock fork of Pale Moon with the intention of being free to distribute ."
+arch=(powerpc64 powerpc espresso)
+url="https://github.com/DCFUKSURMOM/Phantom-Satellite"
+license=('MPL-2.0')
+depends=('gtk3' 'dbus-glib' 'desktop-file-utils' 'libxt' 'mime-types' 'alsa-lib'
+         'startup-notification')
+makedepends=('python' 'unzip' 'zip' 'yasm' 'libpulse' 'git' 'ffmpeg')
+optdepends=('libpulse: PulseAudio audio driver'
+            'ffmpeg: various video and audio support')
+options=(!debug !lto)
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/DCFUKSURMOM/Phantom-Satellite/archive/refs/tags/v$pkgver.tar.gz"
+        mozconfig.in)
+sha256sums=('201b435222892c150f53b847707baddbf26fd035c3fe32f96f1c91fe13f6b397'
+            'efbfaa642db13d257ffa820196111759bb092715d4729ad30ad843d5edb5085c')
+
+case "${CARCH}" in
+  powerpc64le)
+    export CFLAGS="${CFLAGS} -mcrypto"
+    export LDFLAGS="${CFLAGS} -mcrypto"
+  ;;
+  powerpc)
+    export CFLAGS="${CFLAGS} -mcpu=750"
+    export LDFLAGS="${CFLAGS} -mcpu=750"
+  ;;
+esac
+
+prepare() {
+  cd Phantom-Satellite-$pkgver
+
+  cp ${srcdir}/mozconfig.in .mozconfig
+
+  echo "mk_add_options MOZ_MAKE_FLAGS=\"${MAKEFLAGS}\"" >> .mozconfig
+
+  export CXXFLAGS="${CXXFLAGS/-fexceptions/-fno-exceptions}"
+  export CXXFLAGS="${CXXFLAGS/-fno-omit-frame-pointer/}"
+
+  echo "ac_add_options --enable-optimize=\"${CXXFLAGS}\"" >> .mozconfig
+  echo "export CFLAGS=\"${CFLAGS}\"" >> .mozconfig
+  echo "export CXXFLAGS=\"${CXXFLAGS}\"" >> .mozconfig
+
+  cat .mozconfig
+}
+
+build() {
+  cd Phantom-Satellite-$pkgver
+
+  # Remove option not supported by ld.gold to prevent configure failure
+  export LDFLAGS="${LDFLAGS/-Wl,-z,pack-relative-relocs/}"
+  ./mach build
+}
+
+package() {
+  cd Phantom-Satellite-$pkgver/pmbuild
+  make package
+  cd dist
+  install -d "${pkgdir}"/usr/{bin,lib}
+  pwd
+  ls -a
+  cp -r phantomsatellite/ "${pkgdir}/usr/lib/phantomsatellite"
+  ln -s "../lib/phantomsatellite/phantomsatellite" "${pkgdir}/usr/bin/phantomsatellite"
+
+  # icons
+  install -Dm644 phantomsatellite/browser/chrome/icons/default/default16.png \
+    "${pkgdir}/usr/share/icons/hicolor/16x16/apps/phantomsatellite.png"
+  install -Dm644 phantomsatellite/browser/chrome/icons/default/default32.png \
+    "${pkgdir}/usr/share/icons/hicolor/32x32/apps/phantomsatellite.png"
+  install -Dm644 phantomsatellite/browser/chrome/icons/default/default48.png \
+    "${pkgdir}/usr/share/icons/hicolor/48x48/apps/phantomsatellite.png"
+  install -Dm644 phantomsatellite/browser/icons/mozicon128.png \
+    "${pkgdir}/usr/share/icons/hicolor/128x128/apps/phantomsatellite.png"
+
+  # install desktop file
+  install -Dm644 "${srcdir}/Phantom-Satellite-$pkgver/palemoon/branding/unofficial/browser.desktop" "${pkgdir}/usr/share/applications/phantomsatellite.desktop"
+}
