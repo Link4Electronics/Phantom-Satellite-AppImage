@@ -12,7 +12,7 @@ export ICON=/usr/share/icons/hicolor/128x128/apps/phantomsatellite.png
 export DESKTOP=/usr/share/applications/phantomsatellite.desktop
 
 # Deploy dependencies
-quick-sharun /PATH/TO/BINARY_AND_LIBRARIES_HERE
+quick-sharun /usr/bin/phantomsatellite
 
 # Additional changes can be done in between here
 
