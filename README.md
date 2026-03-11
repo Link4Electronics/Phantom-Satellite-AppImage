@@ -7,7 +7,7 @@
 [![Latest Stable Release](https://img.shields.io/github/v/release/pkgforge-dev/Phantom-Satellite-AppImage)](https://github.com/pkgforge-dev/Phantom-Satellite-AppImage/releases/latest)
 
 <p align="center">
-  <img src="https://github.com/pkgforge-dev.png" width="128" />
+  <img src="https://github.com/DCFUKSURMOM/Phantom-Satellite/blob/master/phantomsatellite/branding/unofficial/mozicon128.png" width="128" />
 </p>
 
 
