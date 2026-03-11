@@ -13,6 +13,7 @@ echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano
 
 # Comment this out if you need an AUR package
+make-aur-package openssl-1.1
 make-aur-package python2
 make-aur-package
 
