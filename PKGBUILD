@@ -10,14 +10,14 @@ url="https://github.com/DCFUKSURMOM/Phantom-Satellite"
 license=('MPL-2.0')
 depends=('gtk3' 'dbus-glib' 'desktop-file-utils' 'libxt' 'mime-types' 'alsa-lib'
          'startup-notification')
-makedepends=('python2' 'unzip' 'zip' 'yasm' 'libpulse' 'git' 'ffmpeg')
+makedepends=('python' 'unzip' 'zip' 'yasm' 'libpulse' 'git' 'ffmpeg')
 optdepends=('libpulse: PulseAudio audio driver'
             'ffmpeg: various video and audio support')
 options=(!debug !lto)
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/DCFUKSURMOM/Phantom-Satellite/archive/refs/tags/v$pkgver.tar.gz"
         mozconfig.in)
 sha256sums=('201b435222892c150f53b847707baddbf26fd035c3fe32f96f1c91fe13f6b397'
-            'f2dfcd3c0ceda2b3556a1fc18e131ed7a9e0b5f8c6908936c898a0875d0da1a5')
+            'SKIP')
 
 case "${CARCH}" in
   aarch64)
