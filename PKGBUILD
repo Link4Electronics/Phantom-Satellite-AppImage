@@ -10,7 +10,7 @@ url="https://github.com/DCFUKSURMOM/Phantom-Satellite"
 license=('MPL-2.0')
 depends=('gtk3' 'dbus-glib' 'desktop-file-utils' 'libxt' 'mime-types' 'alsa-lib'
          'startup-notification')
-makedepends=('python' 'unzip' 'zip' 'yasm' 'libpulse' 'git' 'ffmpeg')
+makedepends=('python2' 'unzip' 'zip' 'yasm' 'libpulse' 'git' 'ffmpeg')
 optdepends=('libpulse: PulseAudio audio driver'
             'ffmpeg: various video and audio support')
 options=(!debug !lto)
