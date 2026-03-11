@@ -20,13 +20,9 @@ sha256sums=('201b435222892c150f53b847707baddbf26fd035c3fe32f96f1c91fe13f6b397'
             'f2dfcd3c0ceda2b3556a1fc18e131ed7a9e0b5f8c6908936c898a0875d0da1a5')
 
 case "${CARCH}" in
-  powerpc64le)
-    export CFLAGS="${CFLAGS} -mcrypto"
-    export LDFLAGS="${CFLAGS} -mcrypto"
-  ;;
-  powerpc)
-    export CFLAGS="${CFLAGS} -mcpu=750"
-    export LDFLAGS="${CFLAGS} -mcpu=750"
+  aarch64)
+    export CFLAGS="${CFLAGS} -march=armv8-a+crypto"
+    export LDFLAGS="${CFLAGS} -march=armv8-a+crypto"
   ;;
 esac
 
