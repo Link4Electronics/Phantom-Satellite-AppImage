@@ -1,8 +1,6 @@
 # POWER Maintainer: Alexander Baldeck <alex.bldck@gmail.com>
 # Maintainer:  Daniel Cook (DCFUKSURMOM) <danielcook30a@gmail.com>
 
-apb_output_timeout=7200
-
 pkgname=phantomsatellite-gtk3
 pkgver=34.1.0
 pkgrel=1
