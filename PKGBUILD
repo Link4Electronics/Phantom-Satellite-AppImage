@@ -29,14 +29,23 @@ esac
 prepare() {
   cd Phantom-Satellite-$pkgver
 
-  cp ${srcdir}/mozconfig.in .mozconfig
+  # 1. Strip problematic Arch hardening flags
+  export CFLAGS="${CFLAGS/-Werror=format-security/}"
+  export CXXFLAGS="${CXXFLAGS/-Werror=format-security/}"
+  export CFLAGS="${CFLAGS/-fstack-clash-protection/}"
+  export CXXFLAGS="${CXXFLAGS/-fstack-clash-protection/}"
+  export CFLAGS="${CFLAGS/-D_FORTIFY_SOURCE=3/-D_FORTIFY_SOURCE=2}"
+  export CXXFLAGS="${CXXFLAGS/-D_FORTIFY_SOURCE=3/-D_FORTIFY_SOURCE=2}"
 
-  echo "mk_add_options MOZ_MAKE_FLAGS=\"${MAKEFLAGS}\"" >> .mozconfig
-
+  # 2. Apply Pale Moon specific flag requirements
   export CXXFLAGS="${CXXFLAGS/-fexceptions/-fno-exceptions}"
   export CXXFLAGS="${CXXFLAGS/-fno-omit-frame-pointer/}"
 
-  echo "ac_add_options --enable-optimize=\"${CXXFLAGS}\"" >> .mozconfig
+  # 3. Create the .mozconfig
+  cp ${srcdir}/mozconfig.in .mozconfig
+
+  # 4. Append flags safely (don't repeat this block!)
+  echo "mk_add_options MOZ_MAKE_FLAGS=\"${MAKEFLAGS}\"" >> .mozconfig
   echo "export CFLAGS=\"${CFLAGS}\"" >> .mozconfig
   echo "export CXXFLAGS=\"${CXXFLAGS}\"" >> .mozconfig
 
