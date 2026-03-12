@@ -68,7 +68,7 @@ package() {
     "${pkgdir}/usr/share/icons/hicolor/32x32/apps/phantomsatellite.png"
   install -Dm644 phantomsatellite/browser/chrome/icons/default/default48.png \
     "${pkgdir}/usr/share/icons/hicolor/48x48/apps/phantomsatellite.png"
-  install -Dm644 phantomsatellite/browser/chrome/icons/default/mozicon128.png \
+  install -Dm644 phantomsatellite/browser/icons/mozicon128.png \
     "${pkgdir}/usr/share/icons/hicolor/128x128/apps/phantomsatellite.png"
 
   # install desktop file
