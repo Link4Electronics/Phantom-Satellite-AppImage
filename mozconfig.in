@@ -31,7 +31,7 @@ ac_add_options --enable-optimize="-O2 -w -ffunction-sections"
 
 export MOZ_PKG_SPECIAL=gtk$_GTK_VERSION
 
-#use system libs, potentially reduces ram usage
+# Use system libs where available, potentially reduces ram usage
 ac_add_options --with-system-zlib
 ac_add_options --with-system-bz2
 ac_add_options --enable-system-ffi
