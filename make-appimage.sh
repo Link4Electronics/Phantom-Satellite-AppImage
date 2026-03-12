@@ -13,7 +13,7 @@ export DESKTOP=/usr/share/applications/phantomsatellite.desktop
 export DEPLOY_OPENGL=1
 
 # Deploy dependencies
-quick-sharun /usr/bin/phantomsatellite
+quick-sharun /usr/lib/phantomsatellite/phantomsatellite
 
 # Additional changes can be done in between here
 
