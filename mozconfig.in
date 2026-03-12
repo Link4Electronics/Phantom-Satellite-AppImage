@@ -24,7 +24,6 @@ ac_add_options --disable-crashreporter
 ac_add_options --disable-js-shell
 ac_add_options --disable-precompiled-startupcache
 ac_add_options --disable-elf-hack
-#ac_add_options --disable-gconf
 ac_add_options --disable-gold
 
 #optimize for size, remove unused code and data sections
