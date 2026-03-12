@@ -29,7 +29,7 @@ ac_add_options --disable-elf-hack
 ac_add_options --disable-gold
 
 #optimize for size, remove unused code and data sections
-#ac_add_options --enable-optimize="-Os -fdata-sections -ffunction-sections"
+ac_add_options --enable-optimize="-O2 -w"
 
 export MOZ_PKG_SPECIAL=gtk$_GTK_VERSION
 
