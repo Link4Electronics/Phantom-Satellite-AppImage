@@ -72,5 +72,5 @@ package() {
     "${pkgdir}/usr/share/icons/hicolor/128x128/apps/phantomsatellite.png"
 
   # install desktop file
-  install -Dm644 "${srcdir}/Phantom-Satellite-$pkgver/palemoon/branding/unofficial/browser.desktop" "${pkgdir}/usr/share/applications/phantomsatellite.desktop"
+  install -Dm644 "${srcdir}/Phantom-Satellite-$pkgver/phantomsatellite/branding/unofficial/browser.desktop" "${pkgdir}/usr/share/applications/phantomsatellite.desktop"
 }
