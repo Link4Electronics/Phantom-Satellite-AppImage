@@ -62,13 +62,13 @@ package() {
   ln -s "../lib/phantomsatellite/phantomsatellite" "${pkgdir}/usr/bin/phantomsatellite"
 
   # icons
-  install -Dm644 phantomsatellite/branding/unofficial/default16.png \
+  install -Dm644 phantomsatellite/browser/chrome/icons/default/default16.png \
     "${pkgdir}/usr/share/icons/hicolor/16x16/apps/phantomsatellite.png"
-  install -Dm644 phantomsatellite/branding/unofficial/default32.png \
+  install -Dm644 phantomsatellite/browser/chrome/icons/default/default32.png \
     "${pkgdir}/usr/share/icons/hicolor/32x32/apps/phantomsatellite.png"
-  install -Dm644 phantomsatellite/branding/unofficial/default48.png \
+  install -Dm644 phantomsatellite/browser/chrome/icons/default/default48.png \
     "${pkgdir}/usr/share/icons/hicolor/48x48/apps/phantomsatellite.png"
-  install -Dm644 phantomsatellite/branding/unofficial/mozicon128.png \
+  install -Dm644 phantomsatellite/browser/chrome/icons/default/mozicon128.png \
     "${pkgdir}/usr/share/icons/hicolor/128x128/apps/phantomsatellite.png"
 
   # install desktop file
