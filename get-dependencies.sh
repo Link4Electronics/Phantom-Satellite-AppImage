@@ -6,14 +6,12 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-pacman -Syu --noconfirm \
-	dbus-glib \
-	ffmpeg	  \
-    gtk3 \
-	desktop-file-utils \
-	libxt \
-	mime-types \
-	alsa-lib \
+pacman -Syu --noconfirm  \
+	dbus-glib 			 \
+	desktop-file-utils   \
+	ffmpeg	 			 \
+    gtk3 				 \
+	mime-types 			 \
     startup-notification
 
 echo "Installing debloated packages..."
