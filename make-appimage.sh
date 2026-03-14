@@ -8,13 +8,14 @@ export ARCH VERSION
 export OUTPATH=./dist
 export ADD_HOOKS="self-updater.bg.hook"
 export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}|latest|*$ARCH.AppImage.zsync"
-export ICON=/usr/share/icons/hicolor/128x128/apps/phantomsatellite.png
-export DESKTOP=/usr/share/applications/phantomsatellite.desktop
+export ICON=https://raw.githubusercontent.com/DCFUKSURMOM/Phantom-Satellite/refs/heads/master/phantomsatellite/branding/unofficial/mozicon128.png
+#export DESKTOP=/usr/share/applications/phantomsatellite.desktop
+export DESKTOP=https://raw.githubusercontent.com/DCFUKSURMOM/Phantom-Satellite/refs/heads/master/phantomsatellite/branding/unofficial/browser.desktop
 export DEPLOY_GTK=1
 export DEPLOY_OPENGL=1
 
 # Deploy dependencies
-quick-sharun ./AppDir/bin/phantomsatellite #/usr/lib/phantomsatellite/phantomsatellite
+quick-sharun ./AppDir/bin/phantomsatellite
 
 # Additional changes can be done in between here
 

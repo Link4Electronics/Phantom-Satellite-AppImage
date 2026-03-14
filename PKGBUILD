@@ -8,11 +8,10 @@ pkgdesc="Rebranded but otherwise stock fork of Pale Moon with the intention of b
 arch=('x86_64' 'aarch64')
 url="https://github.com/DCFUKSURMOM/Phantom-Satellite"
 license=('MPL-2.0')
-depends=('gtk3' 'dbus-glib' 'desktop-file-utils' 'libxt' 'mime-types' 'alsa-lib'
+depends=('gtk3' 'dbus-glib' 'desktop-file-utils' 'ffmpeg' 'libxt' 'mime-types' 'alsa-lib'
          'startup-notification')
-makedepends=('python2' 'unzip' 'zip' 'yasm' 'libpulse' 'git' 'ffmpeg')
-optdepends=('libpulse: PulseAudio audio driver'
-            'ffmpeg: various video and audio support')
+makedepends=('python2' 'unzip' 'zip' 'yasm' 'libpulse' 'git')
+optdepends=('libpulse: PulseAudio audio driver')
 options=(!debug !lto)
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/DCFUKSURMOM/Phantom-Satellite/archive/refs/tags/v$pkgver.tar.gz"
         mozconfig.in)
@@ -44,7 +43,7 @@ prepare() {
   # 3. Create the .mozconfig
   cp ${srcdir}/mozconfig.in .mozconfig
 
-  # 4. Append flags safely (don't repeat this block!)
+  # 4. Append flags
   echo "mk_add_options MOZ_MAKE_FLAGS=\"${MAKEFLAGS}\"" >> .mozconfig
   echo "export CFLAGS=\"${CFLAGS}\"" >> .mozconfig
   echo "export CXXFLAGS=\"${CXXFLAGS}\"" >> .mozconfig
@@ -68,18 +67,4 @@ package() {
   pwd
   ls -a
   cp -r phantomsatellite/ "${pkgdir}/usr/lib/phantomsatellite"
-  ln -s "../lib/phantomsatellite/phantomsatellite" "${pkgdir}/usr/bin/phantomsatellite"
-
-  # icons
-  install -Dm644 phantomsatellite/browser/chrome/icons/default/default16.png \
-    "${pkgdir}/usr/share/icons/hicolor/16x16/apps/phantomsatellite.png"
-  install -Dm644 phantomsatellite/browser/chrome/icons/default/default32.png \
-    "${pkgdir}/usr/share/icons/hicolor/32x32/apps/phantomsatellite.png"
-  install -Dm644 phantomsatellite/browser/chrome/icons/default/default48.png \
-    "${pkgdir}/usr/share/icons/hicolor/48x48/apps/phantomsatellite.png"
-  install -Dm644 phantomsatellite/browser/icons/mozicon128.png \
-    "${pkgdir}/usr/share/icons/hicolor/128x128/apps/phantomsatellite.png"
-
-  # install desktop file
-  install -Dm644 "${srcdir}/Phantom-Satellite-$pkgver/phantomsatellite/branding/unofficial/browser.desktop" "${pkgdir}/usr/share/applications/phantomsatellite.desktop"
 }
