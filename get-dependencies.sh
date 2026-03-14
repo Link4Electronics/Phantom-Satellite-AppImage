@@ -27,7 +27,7 @@ if [ "$ARCH" = "x86_64" ]; then
 	  https://api.github.com/repos/DCFUKSURMOM/Phantom-Satellite/releases/latest -O - \
 	  | sed 's/[()",{} ]/\n/g' | grep -o -m 1 'https.*releases.*linux-x86_64-gtk3.*tar.xz'
   )
-  echo "$TARBALL_LINK" | awk -F'/' '{print $(NF-1)}' > ~/version
+  echo "$TARBALL_LINK" | awk -F'/' '{print $(NF-1)}' | tr -d 'v' > ~/version
   wget "$TARBALL_LINK" -O /tmp/phantomsatellite.tar.xz
   tar xvf /tmp/phantomsatellite.tar.xz -C /usr/lib
   rm -f /tmp/phantomsatellite.tar.xz
