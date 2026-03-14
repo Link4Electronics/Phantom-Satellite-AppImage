@@ -8,6 +8,7 @@ echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
 	dbus-glib \
+	ffmpeg	  \
     gtk3
 
 echo "Installing debloated packages..."
