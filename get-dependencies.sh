@@ -9,7 +9,12 @@ echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
 	dbus-glib \
 	ffmpeg	  \
-    gtk3
+    gtk3 \
+	desktop-file-utils \
+	libxt \
+	mime-types \
+	alsa-lib \
+    startup-notification
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
