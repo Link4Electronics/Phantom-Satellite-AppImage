@@ -9,7 +9,6 @@ echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm  \
 	dbus-glib 			 \
 	desktop-file-utils   \
-	ffmpeg	 			 \
     gtk3 				 \
 	mime-types 			 \
     startup-notification
