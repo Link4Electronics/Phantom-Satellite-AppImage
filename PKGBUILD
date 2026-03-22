@@ -22,7 +22,7 @@ prepare() {
   cd Phantom-Satellite-$pkgver
 
   export CFLAGS="-fstack-protector-strong"
-  export CXXFLAGS="$CFLAGS -fno-exceptions -fno-rtti"
+  export CXXFLAGS="$CFLAGS"
 
   cp ${srcdir}/mozconfig.in .mozconfig
 
