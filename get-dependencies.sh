@@ -10,6 +10,8 @@ pacman -Syu --noconfirm  \
 	dbus-glib 			 \
 	desktop-file-utils   \
     gtk3 				 \
+	libdbusmenu-gtk3 	 \
+	libdbusmenu-glib	 \
 	mime-types 			 \
     startup-notification
 
