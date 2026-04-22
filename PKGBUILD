@@ -2,7 +2,7 @@
 # Maintainer:  Daniel Cook (DCFUKSURMOM) <danielcook30a@gmail.com>
 
 pkgname=phantomsatellite-gtk3
-pkgver=34.1.0
+pkgver=34.2.0
 pkgrel=1
 pkgdesc="Rebranded but otherwise stock fork of Pale Moon with the intention of being free to distribute ."
 arch=('x86_64' 'aarch64')
