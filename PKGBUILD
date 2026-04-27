@@ -38,7 +38,7 @@ prepare() {
 
 build() {
 #  cd Phantom-Satellite-$pkgver
-  cd Phantom-Satellite.gin
+  cd Phantom-Satellite.git
 
   # Remove option not supported by ld.gold to prevent configure failure
   export LDFLAGS="${LDFLAGS/-Wl,-z,pack-relative-relocs/}"
@@ -47,7 +47,7 @@ build() {
 
 package() {
 #  cd Phantom-Satellite-$pkgver/pmbuild
-  cd Phantom-Satellite.gin/pmbuild
+  cd Phantom-Satellite.git/pmbuild
   make package
   cd dist
   install -d "${pkgdir}"/usr/{bin,lib}
