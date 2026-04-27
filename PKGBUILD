@@ -14,7 +14,7 @@ makedepends=('python' 'unzip' 'zip' 'yasm' 'libpulse' 'git')
 optdepends=('libpulse: PulseAudio audio driver')
 options=(!debug !lto)
 #source=("${pkgname}-${pkgver}.tar.gz::https://github.com/DCFUKSURMOM/Phantom-Satellite/archive/refs/tags/v$pkgver.tar.gz"
-source=(https://github.com/DCFUKSURMOM/Phantom-Satellite.git
+source=(git+https://github.com/DCFUKSURMOM/Phantom-Satellite.git
         mozconfig.in)
 #sha256sums=('201b435222892c150f53b847707baddbf26fd035c3fe32f96f1c91fe13f6b397'
 sha256sums=('SKIP'
