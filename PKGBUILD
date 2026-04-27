@@ -22,6 +22,7 @@ sha256sums=('SKIP'
 
 prepare() {
 #  cd Phantom-Satellite-$pkgver
+ ls
   cd Phantom-Satellite
 
   export CFLAGS="-fstack-protector-strong"
