@@ -22,7 +22,7 @@ sha256sums=('SKIP'
 
 prepare() {
 #  cd Phantom-Satellite-$pkgver
-  cd Phantom-Satellite.git
+  cd Phantom-Satellite
 
   export CFLAGS="-fstack-protector-strong"
   export CXXFLAGS="$CFLAGS"
@@ -38,7 +38,7 @@ prepare() {
 
 build() {
 #  cd Phantom-Satellite-$pkgver
-  cd Phantom-Satellite.git
+  cd Phantom-Satellite
 
   # Remove option not supported by ld.gold to prevent configure failure
   export LDFLAGS="${LDFLAGS/-Wl,-z,pack-relative-relocs/}"
@@ -47,7 +47,7 @@ build() {
 
 package() {
 #  cd Phantom-Satellite-$pkgver/pmbuild
-  cd Phantom-Satellite.git/pmbuild
+  cd Phantom-Satellite/pmbuild
   make package
   cd dist
   install -d "${pkgdir}"/usr/{bin,lib}
