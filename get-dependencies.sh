@@ -26,11 +26,11 @@ echo "---------------------------------------------------------------"
 if [ "$ARCH" = "x86_64" ]; then
   TARBALL_LINK=$(wget --retry-connrefused --tries=30 \
 	  https://api.github.com/repos/DCFUKSURMOM/Phantom-Satellite/releases/latest -O - \
-	  | sed 's/[()",{} ]/\n/g' | grep -o -m 1 'https.*releases.*linux-${ARCH}-gtk3.*tar.xz')
+	  | sed 's/[()",{} ]/\n/g' | grep -o -m 1 'https.*releases.*linux-x86_64-gtk3.*tar.xz')
 else
   TARBALL_LINK=$(wget --retry-connrefused --tries=30 \
 	  https://api.github.com/repos/DCFUKSURMOM/Phantom-Satellite/releases/latest -O - \
-	  | sed 's/[()",{} ]/\n/g' | grep -o -m 1 'https.*releases.*linux-${ARCH}-gtk2.*tar.xz')
+	  | sed 's/[()",{} ]/\n/g' | grep -o -m 1 'https.*releases.*linux-aarch64-gtk2.*tar.xz')
   make-aur-package gtk2
   make-aur-package libdbusmenu-gtk2
 fi
